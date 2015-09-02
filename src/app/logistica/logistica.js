@@ -25,7 +25,6 @@ angular.module('app.logistica', [
                 $scope.nodes = nodes;
                 $scope.paths = [];
                 $scope.type = "all";
-                $scope.sourceNode = undefined;
                 $scope.onDiscoverPaths = function () {
                     if (validate()) {
                         EdgeService
