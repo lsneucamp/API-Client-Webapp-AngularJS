@@ -9,15 +9,38 @@ angular.module('app', [
     'ui.router'
 ])
 
-        .config(['$urlRouterProvider',
-            function myAppConfig($urlRouterProvider) {
+        .config(['$urlRouterProvider', '$httpProvider',
+            function myAppConfig($urlRouterProvider, $httpProvider) {
                 $urlRouterProvider.otherwise('/home');
+
+                $httpProvider.interceptors.push(['$rootScope', '$q', function ($rootScope, $q) {
+
+                        return {
+                            // Every Response check if any errors exists
+                            // parse the Header Status 401/403 and call event if necessary.
+                            'responseError': function (rejection) {
+                                console.debug("interceptors->responseError 2", rejection);
+                                if (rejection.status === 0) {
+                                    $rootScope.callServiceNotAvailableErr();
+                                } else if (rejection.status === 404) {
+                                    $rootScope.callNotFoundErr();
+
+                                } else if (rejection.status === 403) {
+                                    $rootScope.callForbiddenErr();
+                                }
+                                return $q.reject(rejection);
+
+                            }
+                        };
+                    }
+                ]);
+
 
             }])
         .run(function run($rootScope, $http, api) {
             $rootScope.api = api;
             $http.defaults.headers.post["Content-Type"] = "application/json";
-            
+
         }).controller('AppCtrl',
         function AppCtrl($scope, $rootScope, $state, $q, $log, $timeout, errors) {
             //
@@ -44,6 +67,18 @@ angular.module('app', [
                     $scope.pageTitle = title + "| Logistica Webapp";
                 }
             });
+
+            $rootScope.callServiceNotAvailableErr = function () {
+                $state.go('service-not-available');
+            };
+
+            $rootScope.callNotFoundErr = function () {
+                $state.go('not-found');
+            };
+            $rootScope.callForbiddenErr = function () {
+                $state.go('forbidden');
+            };
+
 
         })
 

@@ -24,16 +24,20 @@ angular.module('app.logistica', [
             function LogisticaCtrl($scope, nodes, EdgeService) {
                 $scope.nodes = nodes;
                 $scope.paths = [];
-
+                $scope.type = "all";
+                $scope.sourceNode = undefined;
                 $scope.onDiscoverPaths = function () {
                     if (validate()) {
                         EdgeService
-                                .findAllPaths($scope.sourceNode._id, $scope.destNode._id,$scope.autonomy,$scope.fuelCost)
+                                .findPath($scope.type, $scope.sourceNode._id, $scope.destNode._id, $scope.autonomy, $scope.fuelCost)
                                 .then(function (response) {
-                                    console.log(response);
-                                    if(response.status===200){
+                                    if (response.status === 200) {
                                         setPaths(response.data);
+                                    } else {
+                                        setPaths([]);
                                     }
+                                }, function (err) {
+                                    setPaths([]);
                                 });
                     }
                 };
