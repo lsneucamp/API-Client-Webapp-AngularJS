@@ -16,7 +16,7 @@ Esse webapp está bem simplificado, não consegui a tempo agregar mais conteúdo
 Para que este Webapp possa usar a API é necessario configurar o arquivo config.js que fica na pasta especificada abaixo:
  
 ```
-Logistics-Webapp/
+Webapp/
   |- karma/
   |- src/
   |  |- app/
@@ -53,7 +53,7 @@ Finalmente é so abrir `file:///caminho/para/o/projeto/build/index.html` no seu 
 ### Organização do Projeto
 
 ```
-Logistics-Webapp/
+Webapp/
   |- karma/
   |- src/
   |  |- app/
