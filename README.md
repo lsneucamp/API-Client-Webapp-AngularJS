@@ -1,16 +1,10 @@
 # Webapp-Logistica-AngularJS
 
-## Motivações
-
-Trabalho com o desenvolvimento de Webapps deste 2009 iniciando com o GWT, a partir daí descobrir um novo mundo e comecei a desenvolver aplicações completas usando Javascript, html e css.
-
-Temo experiência com várias bibliotecas do Javascript, como Jquery, Dojo, script.aculo.us, Modernizr e Ext.js, e também tive experiência em desenvolvimento de aplicações hibridas usando Cordova e PhoneGap. Nos últimos anos estou usando em vários projetos AngularJS para o desenvolvimento, pois é uma biblioteca bem solida e com uma comunidade bem extensa e de ser bem intuitivo.
-
 Esse Webapp foi criado para pode testar as REST APIs criadas para esse teste:
 
-https://github.com/lsneucamp/API-Logistica-NodeJS-Express
+https://github.com/lsneucamp/API-NodeJS-Express
 
-https://github.com/lsneucamp/API-Logistica-SpringBoot
+https://github.com/lsneucamp/API-SpringBoot
 
 Esse webapp está bem simplificado, não consegui a tempo agregar mais conteúdo, porem as funções básicas do teste estão presentes e podem ser testadas através desta aplicação. 
 
