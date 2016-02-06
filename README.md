@@ -1,4 +1,4 @@
-#API-Client-Webapp-Logistica-AngularJS
+#API-Client-Webapp-AngularJS
 
 Esse Webapp foi criado para pode testar as REST APIs criadas para esse teste:
 
